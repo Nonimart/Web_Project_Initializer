@@ -1,5 +1,6 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 echo -e "——${RED} Quel est le nom du projet ?${NC} "
 
@@ -58,10 +59,9 @@ case $opt in
       echo -e "$opt >${GREEN} ok! Pas de Bootstrap!${NC}"
       break
       ;;
-    *) 
-      echo "Invalid option $REPLY"
-      break
-      ;;
+    * )
+      echo -e "$opt >${YELLOW} Ce n'est pas un choix valide. merci de choisir une option valide!${NC}"
+      continue
   esac
 done
 
@@ -83,9 +83,9 @@ case $opt in
       echo -e "$opt >${GREEN} ok! Pas de Font Awesome!${NC}"
       break
       ;;
-    *) 
-      echo "Invalid option $REPLY"
-      break
+    * )
+      echo -e "$opt >${YELLOW} Ce n'est pas un choix valide. merci de choisir une option valide!${NC}"
+      continue
       ;;
   esac
 done
@@ -105,19 +105,17 @@ case $opt in
       echo -e " $opt >${GREEN} Ok! Je vous fait une arbo Scss!${NC}"
       mkdir assets/scss
       touch assets/scss/style.scss
-
       break
       ;;
     Sass)
       echo -e "$opt >${GREEN}  Ok! Je vous fait une arbo Sass!${NC}"
       mkdir assets/sass
       touch assets/sass/style.sass
-      
       break
       ;;
-    *) 
-      echo "Invalid option $REPLY"
-      break
+    * )
+      echo -e "$opt >${YELLOW}Ce n'est pas un choix valide. merci de choisir une option valide!${NC}"
+      continue
       ;;
   esac
 done
@@ -182,8 +180,8 @@ case $opt in
       break
       ;;
     *) 
-      echo "Invalid option $REPLY"
-      break
+      echo -e "$opt >${YELLOW} Ce n'est pas un choix valide. merci de choisir une option valide!${NC}"
+      continue
       ;;
   esac
 done
